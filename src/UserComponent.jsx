@@ -56,15 +56,62 @@
 // }
 
 
-function Student({name}){
+// function Student({name}){
+
+//   return(
+//       <div>
+//         <h1>Studnet Name : {name}</h1>
+//       </div> 
+//   )
+// }
+
+
+// function User2({name ="User"}){ //user is default prop 
+
+//   return(
+    
+//       <div>
+//         <h1>Hi , {name}</h1>
+//       </div>
+    
+//   )
+// }
+// export default User2;
+
+
+// function Wrapper({children,color="red"}){//defsult red if not passed 
+
+//   return(
+    
+//       <div style={{color:color, border:"5px solid black",width:"300px",padding :"20px" ,margin:"10px"}}>
+//       {children}
+        
+//       </div>
+    
+//   )
+// }
+
+//checkbox
+
+function Checkbox(){
 
   return(
       <div>
-        <h1>{name}</h1>
-      </div> 
+        <h3>Select your skills</h3>
+        <input type="checkbox" id="PHP" value="PHP"/>
+        <label htmlFor="PHP">PHP</label><br></br>
+
+        <input type="checkbox" id="HTML" value="HTML"/>
+        <label htmlFor="HTML">HTML</label><br>
+        </br>
+
+        <input type="checkbox" id="CSS" value="CSS"/>
+        <label htmlFor="CSS">CSS</label>
+      </div>
   )
 }
 
-export default Student;
+export default Checkbox;
+
 
 

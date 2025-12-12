@@ -3,12 +3,14 @@
 // import viteLogo from '/vite.svg'
 // import { createLogger } from 'vite';
 
-// import { useState } from 'react'
-import './App.css'
+// import './App.css'
 import Header from './header'
 import Counter from './01_counter'
-// import User from './UserComponent'
+// import User2 from './UserComponent'
 import Student from './UserComponent'
+import Wrapper from './UserComponent';
+import { useState } from 'react';
+import Checkbox from './UserComponent';
 
 // import Login , {Profile ,Setting ,UserKey} from './UserComponent'
 
@@ -147,36 +149,90 @@ import Student from './UserComponent'
 
 
 //props (parameter jaisa he hai)
-function App(){
-  let userObj={
-        Name:"Ram Patel",
-        Age:"20",
-        email:"ram@gmail.com"
-    }
+// function App(){
+//   let userObj={
+//         Name:"Ram Patel",
+//         Age:"20",
+//         email:"ram@gmail.com"
+//     }
 
+//     const [student , setStudent] = useState(""); //emtpy wla case 
 
-
-  return(
+//   return(
     
-      <div>
-        {/* <User name="Ram Patel" age = {20} /> */}
-        <User user1={userObj}/>
-        <Student name="sam" />
-      </div>
+//       <div>
+//         {/* <User name="Ram Patel" age = {20} /> */}
+//         {/* <User user1={userObj}/> */}
+//         {/* <Student name={student} /> */}
+
+//         {/* student me9in kuch value ho tabhi dekhe */}
+//         { student && <Student name={student} /> }
+//         <button onClick={()=>{setStudent("RAM")}}>Click here to make visible the student name </button>
+//       </div>
     
-  )
-}
-
-
-export default App;
+//   )
+// }
 
 // function App(){
 
 //   return(
     
 //       <div>
-//         <h1></h1>
+//         {/* <h1><User2 name="" /></h1>
+//         <User2 /> */}
+
+//         <Wrapper color="orange">
+//         <h1>Hello Everyone</h1> 
+//         <h2 style={{color: 'green'}}>Hello user</h2>
+
+//         </Wrapper>
+
+//         <Wrapper>
+//         <h1>Hello admin</h1> 
+
+//         </Wrapper>
+
+
+        
 //       </div>
     
+//   )
+// }
+
+//controll component
+// function App(){
+//   const [val,setVal] = useState("Ram Patel") //state
+
+//   return(
+//       <div>
+//         <h1>Get input field</h1>
+//         <input value ={val} placeholder='enter the text' type="text" onChange={(event)=>setVal(event.target.value)}></input>
+//         <h1>{val}</h1>
+//         <button onClick={()=>setVal("")}>Clear Value</button>
+
+//       </div>
+//   )
+// }
+
+//handle checkbox
+
+function App(){
+
+  return(
+      <div>
+        <h3></h3>
+        <Checkbox />
+      </div>
+  )
+}
+
+export default App;
+
+// function App(){
+
+//   return(
+//       <div>
+//         <h1></h1>
+//       </div>
 //   )
 // }
