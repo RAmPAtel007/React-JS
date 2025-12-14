@@ -1,5 +1,7 @@
 // import { Component } from "react";
 
+//import { useState } from "react";
+
 // function Login(){
 //     return(
 //         <div>
@@ -93,25 +95,52 @@
 
 //checkbox
 
-function Checkbox(){
+// function Checkbox(){
 
-  return(
-      <div>
-        <h3>Select your skills</h3>
-        <input type="checkbox" id="PHP" value="PHP"/>
-        <label htmlFor="PHP">PHP</label><br></br>
+//   //In React:
 
-        <input type="checkbox" id="HTML" value="HTML"/>
-        <label htmlFor="HTML">HTML</label><br>
-        </br>
+//     // onChange fires whenever the checkbox value changes
 
-        <input type="checkbox" id="CSS" value="CSS"/>
-        <label htmlFor="CSS">CSS</label>
-      </div>
-  )
-}
+//     // It gives you access to:
 
-export default Checkbox;
+//     // event.target.checked → true / false
+
+//     // event.target.value → checkbox value
+
+//   const [skills,setSkills]=useState([]);
+//   const handleSkills=(event)=>{
+//     console.log(event.target.value , event.target.checked);
+//     if(event.target.checked){
+//       setSkills([...skills,event.target.value])//jitne skills the phelese and jo checked hue hai 
+//     }
+//     else{
+//       setSkills([...skills.filter((item)=>item!=event.target.value)])
+
+//       //Remove the unchecked checkbox value from the skills array and update the state with a new array. //saare value jo select nahi hai usko skills mein rakh lo 
+//     }
+//   }
+
+//   return(
+//       <div>
+//         <h3>Select your skills</h3>
+//         <input onChange={handleSkills} type="checkbox" id="PHP" value="PHP"/>
+//         <label htmlFor="PHP">PHP</label><br></br>
+
+//         <input onChange={handleSkills} type="checkbox" id="HTML" value="HTML"/>
+//         <label htmlFor="HTML">HTML</label><br>
+//         </br>
+
+//         <input onChange={handleSkills} type="checkbox" id="CSS" value="CSS"/>
+//         <label htmlFor="CSS">CSS</label>
+
+//         <h1>{skills.toString()}</h1>
+
+
+//       </div>
+//   )
+// }
+
+// export default Checkbox;
 
 
 

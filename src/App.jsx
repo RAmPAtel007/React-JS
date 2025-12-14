@@ -3,14 +3,15 @@
 // import viteLogo from '/vite.svg'
 // import { createLogger } from 'vite';
 
+import { useState } from "react";
+
 // import './App.css'
-import Header from './header'
-import Counter from './01_counter'
+//import Header from './header'
+//import Counter from './01_counter'
 // import User2 from './UserComponent'
-import Student from './UserComponent'
-import Wrapper from './UserComponent';
-import { useState } from 'react';
-import Checkbox from './UserComponent';
+//import Student from './UserComponent'
+//import Wrapper from './UserComponent';
+// import Checkbox from './UserComponent';
 
 // import Login , {Profile ,Setting ,UserKey} from './UserComponent'
 
@@ -216,12 +217,37 @@ import Checkbox from './UserComponent';
 
 //handle checkbox
 
+// function App(){
+
+//   return(
+//       <div>
+//         <h3></h3>
+//         <Checkbox />
+//       </div>
+//   )
+// }
+
 function App(){
+  const [gender ,setGender] = useState('male')
+  const [city , setCity] = useState('indore')
 
   return(
       <div>
-        <h3></h3>
-        <Checkbox />
+        <h1>Handle radio and dropdown</h1>
+        <h4>Select gender</h4>
+        <input type="radio" onChange={(event)=>setGender(event.target.value)}  name="gender" value={"male"} id="male" checked={gender=="male"}/><label>Male </label><br></br>
+        <input type='radio' onChange={(event)=>setGender(event.target.value)} name="gender" value={"female"} id="female" checked={gender=="female"}/><label>female</label>
+
+        <h2>select gender : {gender}</h2>
+        <br></br>
+
+        <select defaultValue={"indore"} onChange={(event)=>setCity(event.target.value)}>
+          <option value="indore">Indore</option>
+          <option value="mhow">Mhow</option>
+        </select>
+
+        <h2>selected city is : {city}</h2>
+
       </div>
   )
 }
