@@ -1,6 +1,6 @@
 // import { Component } from "react";
 
-//import { useState } from "react";
+import { useState } from "react";
 
 // function Login(){
 //     return(
@@ -47,12 +47,7 @@
 //         <h1>Name : {user1.Name} </h1>
 //         <h1>Age : {user1.Age} </h1>
 //         <h1>Email :{user1.email}</h1>
-
-
-
 //         </div>
-    
- 
 //     )
 
 // }
@@ -111,7 +106,7 @@
 //   const handleSkills=(event)=>{
 //     console.log(event.target.value , event.target.checked);
 //     if(event.target.checked){
-//       setSkills([...skills,event.target.value])//jitne skills the phelese and jo checked hue hai 
+//       setSkills([...skills,event.target.value])//jitne skills the phele se value hai wooh  and jo checked hue hai wooh values show karega
 //     }
 //     else{
 //       setSkills([...skills.filter((item)=>item!=event.target.value)])
@@ -125,6 +120,7 @@
 //         <h3>Select your skills</h3>
 //         <input onChange={handleSkills} type="checkbox" id="PHP" value="PHP"/>
 //         <label htmlFor="PHP">PHP</label><br></br>
+//         {/* //label htmlfor is for onclicking the text the checkbox will work  */}
 
 //         <input onChange={handleSkills} type="checkbox" id="HTML" value="HTML"/>
 //         <label htmlFor="HTML">HTML</label><br>

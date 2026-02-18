@@ -77,7 +77,7 @@ import { useState } from "react";
 //     <div>
 //       <h1>Event and function Call</h1>
 //       <button onClick={fruit}>Click me </button> 
-//       {/* or ypu can put the whole function defination not the function call */}
+//       {/* or you can put the whole function defination not the function call */}
 
 //       {/* for parameter */}
 //       <button onClick={()=>fruit("banana")}> Banana</button>
@@ -90,21 +90,20 @@ import { useState } from "react";
 //state and import state or can say hooks 
 
 // function App(){
-//   //destructing of js 
-//   // const [fruit,setFruit] =useState("Apple");   //state and update state and intial value 
-//   // const handleFruit=()=>{
-//   //   setFruit("Banana");
-//   // }
-//   // return(
-//   //   <div>
-//   //   <h1>{fruit}</h1>
-//   //   <button onClick={handleFruit}>Change fruit</button>
-//   //   <Counter />
+//   // destructing of js 
+//   const [fruit,setFruit] =useState("Apple");   //[state ,update] state and [intial]value 
+//   const handleFruit=()=>{
+//     setFruit("Banana");
+//   }
+//   return(
+//     <div>
+//     <h1>{fruit}</h1>
+//     <button onClick={handleFruit}>Change fruit</button>
+//     <Counter />
       
-//   //   </div>
-//   // )
+//     </div>
+//   )
 
-  
 // }
 
 
@@ -113,8 +112,9 @@ import { useState } from "react";
 //   const [display,setdisplay] = useState(true);
 //   return(
 //     <>
-    
-   
+//     <h1>Toggle in react js</h1>
+
+
 //   {
 //     display?<h1>Ram Patel</h1>:null
 //   }
@@ -150,6 +150,7 @@ import { useState } from "react";
 
 
 //props (parameter jaisa he hai)
+
 // function App(){
 //   let userObj={
 //         Name:"Ram Patel",
@@ -162,17 +163,21 @@ import { useState } from "react";
 //   return(
     
 //       <div>
+//       {/* direct pass */}
 //         {/* <User name="Ram Patel" age = {20} /> */}
+//        {/* //object pass   */}
 //         {/* <User user1={userObj}/> */}
 //         {/* <Student name={student} /> */}
 
-//         {/* student me9in kuch value ho tabhi dekhe */}
+//         {/* student mein kuch value ho tabhi dekhe */}
 //         { student && <Student name={student} /> }
+
 //         <button onClick={()=>{setStudent("RAM")}}>Click here to make visible the student name </button>
 //       </div>
     
 //   )
 // }
+
 
 // function App(){
 
@@ -192,15 +197,14 @@ import { useState } from "react";
 //         <h1>Hello admin</h1> 
 
 //         </Wrapper>
-
-
         
 //       </div>
     
 //   )
 // }
 
-//controll component
+//control component
+
 // function App(){
 //   const [val,setVal] = useState("Ram Patel") //state
 
@@ -208,6 +212,11 @@ import { useState } from "react";
 //       <div>
 //         <h1>Get input field</h1>
 //         <input value ={val} placeholder='enter the text' type="text" onChange={(event)=>setVal(event.target.value)}></input>
+
+//         {/* event ka jo target hai that is input feild ki value (event.target.value) and setVal ko use kiya hai because jaise jaise change hoga input mein waise show hoga*/}
+
+//         {/* //state ko use kiya hai bhahr display per show krne k liye */}
+
 //         <h1>{val}</h1>
 //         <button onClick={()=>setVal("")}>Clear Value</button>
 
@@ -218,7 +227,6 @@ import { useState } from "react";
 //handle checkbox
 
 // function App(){
-
 //   return(
 //       <div>
 //         <h3></h3>
@@ -236,11 +244,15 @@ function App(){
         <h1>Handle radio and dropdown</h1>
         <h4>Select gender</h4>
         <input type="radio" onChange={(event)=>setGender(event.target.value)}  name="gender" value={"male"} id="male" checked={gender=="male"}/><label>Male </label><br></br>
+
         <input type='radio' onChange={(event)=>setGender(event.target.value)} name="gender" value={"female"} id="female" checked={gender=="female"}/><label>female</label>
+
+        {/* //checked checkbox mein fill krega  */}
 
         <h2>select gender : {gender}</h2>
         <br></br>
 
+        {/* //select k liye default value is given by defaultValue attribute */}
         <select defaultValue={"indore"} onChange={(event)=>setCity(event.target.value)}>
           <option value="indore">Indore</option>
           <option value="mhow">Mhow</option>
@@ -262,3 +274,5 @@ export default App;
 //       </div>
 //   )
 // }
+
+// export default App;
