@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 // import { Component } from "react";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+// import { useState } from "react";
 
 // function Login(){
 //     return(
@@ -137,6 +140,119 @@ import { useState } from "react";
 // }
 
 // export default Checkbox;
+
+
+//reuse component in loop
+// const User =({data})=>{
+//     return(
+//         <div style = {{
+//             border : "2px solid red",
+//             padding : "10px",
+//             margin: " 5px"
+//         }}>
+//         <h3>Name : {data.Name} </h3>
+//         <h3>RollNo : {data.Rollno}</h3>
+        
+//         </div>
+        
+//     )
+// }
+
+// export default User;
+
+//Clock
+
+// const Clock=()=>{
+//     const [time,setTime] = useState(0);
+//     useEffect(()=>{
+//         setInterval(()=>{
+//             setTime(new Date().toTimeString())
+//         },1000);
+//     } ,[])
+//     return(
+//         <div>
+//         {time}
+          
+//         </div>
+//     )
+
+// }
+// export default Clock;
+
+//nested looping 
+
+// import Student from "./Student";
+// function College({ college }) {
+//   return (
+//     <div
+//       style={{
+//         backgroundColor: "#ccc",
+//         padding: "20px",
+//         margin: "20px",
+//         borderBottom: "2px solid #000",
+//         borderRadius: "10px",
+//       }}
+//     >
+//       <h1>Name:{college.name}</h1>
+//       <ul>
+//         <li>
+//           <h3>City:{college.city}</h3>
+//         </li>
+//         <li>
+//           <h3>Website:{college.website}</h3>
+//         </li>
+//         <li>
+//           <Student student={college.student} />
+//         </li>
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default College;
+
+//parameter handling of the UseEffect 
+// const Counter = ({count ,data}) => {
+
+//     const handleCounter = () => {
+//     console.log("handleCounter called");
+//   };
+
+//   useEffect(() => {
+//     handleCounter();
+//   }, []); //one time // mounting phase 
+   
+//   const handleData = () =>{
+//     console.log("handledata called");
+//   }
+
+//   useEffect(() => {
+//     handleData();
+//   }, [data]); // everytime for the data button //update phase 
+
+//   //unmounting 
+//    useEffect(() => {
+//     return()=>{
+//         console.log("unmounted")
+//     }
+//   }, [])
+  
+
+
+//   return (
+//     <div>
+//       <h1>Counter value {count}</h1>
+//       <h2>Data value {data}</h2>
+//     </div>
+//   );
+// };
+
+// export default Counter;
+
+//css 
+
+
+
 
 
 
