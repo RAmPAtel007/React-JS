@@ -4,7 +4,9 @@
 // import viteLogo from '/vite.svg'
 // import { createLogger } from 'vite';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState , useTransition } from "react";
+import { useRef } from "react";
+import { forwardRef } from "react";
 
 // import './App.css'
 //import Header from './header'
@@ -821,15 +823,286 @@ import { useEffect, useState } from "react";
 // export default App;
 
 
-
+//BOOTSTRAP
+// import { Button } from 'react-bootstrap';
+// import { Alert,Navbar,Container,NavDropdown,Nav } from "react-bootstrap"
 
 
 // function App(){
   
 //   return(
-//     <div></div>
+//     <>
+//     {/*  */}
+
+//     <Navbar expand="lg" className="bg-body-tertiary">
+//       <Container>
+//         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+//         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+//         <Navbar.Collapse id="basic-navbar-nav">
+//           <Nav className="me-auto">
+//             <Nav.Link href="#home">Home</Nav.Link>
+//             <Nav.Link href="#link">Link</Nav.Link>
+//             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+//               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+//               <NavDropdown.Item href="#action/3.2">
+//                 Another action
+//               </NavDropdown.Item>
+//               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+//               <NavDropdown.Divider />
+//               <NavDropdown.Item href="#action/3.4">
+//                 Separated link
+//               </NavDropdown.Item>
+//             </NavDropdown>
+//           </Nav>
+//         </Navbar.Collapse>
+//       </Container>
+//     </Navbar>
+
+
+
+//     {/*  */}
+//       <h1>Add Bootstrap in React js </h1>
+     
+//       <Alert variant="success" >Hello, BT installed</Alert>
+
+//       <Button onClick={()=>alert("Bootstrap Button")}  variant="danger">Bootstrap Button</Button>
+//       <Button variant="success">Ok</Button>
+//       <Button variant="warning">Ok</Button>
+//       <button  onClick={()=>alert("Simple Button")} >Simple Button</button>
+
+
+//     {/* <h1>Add bootstrap in js</h1>
+//     <Button variant="warning">Okay</Button>
+//     <Button variant="success">Okay</Button>
+//     <Alert variant="danger">BOOTSTRAP is installed </Alert> */}
+//     </>
 //   )
 // }
 
 // export default App;
 
+
+//useRef HOOK
+
+// function App(){
+//   const h1Ref = useRef(null);
+//   const inputRef = useRef(null);
+//   const inputHandler=()=>{
+//     inputRef.current.focus();
+//     inputRef.current.style.color = 'red';
+//     inputRef.current.placeholder = "enter password";
+//     inputRef.current.value=704945;
+//   }
+  
+//   const h1handler=()=>{
+    
+//       h1Ref.current.style.color = "green";
+    
+//   }
+  
+//   return(
+//     <>
+//     <h1>UseRef</h1>
+//     <input ref={inputRef} type="text" placeholder="enter your name" /> 
+//     <button onClick={inputHandler}>Focus on the field</button>
+//     <h1>do green</h1>
+//     <button onClick={h1handler}>make it green </button>
+    
+//     </>
+//   )
+// }
+
+// export default App;
+
+//uncontrolled component The form element controls itself — React doesn't track or manage its value directly.
+
+
+// function App(){
+
+//   const handleForm=(event)=>{
+//    event.preventDefault();//page reload nahi hoga submit button per click krne per 
+//    const user= document.querySelector("#user").value;
+//    const password= document.querySelector("#password").value;
+
+//    console.log(user,password);
+   
+//   }
+
+//    const userRef=useRef();
+//   const passwordRef=useRef();
+
+//   const handleFormRef=(event)=>{
+//   event.preventDefault()
+//   const user= userRef.current.value
+//   const password= passwordRef.current.value
+
+//   console.log("handleFormRef",user,password);
+
+  
+//  }
+
+  
+ 
+  
+//   return(
+//     <>
+//     <h1>Uncontrolled Component DOM</h1>
+//      <form action="" method="post" onSubmit={handleForm}>
+//       <input type="text" id="user" placeholder="enter user name" />
+//       <br /><br />
+//       <input type="password" id="password" placeholder="enter user password" />
+//       <br /><br />
+//       <button>
+//         Submit
+//       </button>
+
+//      </form>
+
+//      <hr />
+//      <h1>Uncontrolled Component with useRef</h1>
+//      <form action="" method="post" onSubmit={handleFormRef}>
+//       <input type="text" ref={userRef} id="userRef" placeholder="enter user name" />
+//       <br /><br />
+//       <input type="password" ref={passwordRef} id="passwordRef" placeholder="enter user password" />
+//       <br /><br />
+//       <button>
+//         Submit with Ref
+//       </button>
+
+//      </form>
+    
+//     </>
+//   )
+// }
+
+// export default App;
+
+
+
+//PASS FUNCTION IN COMPONENT AS PROPS
+// import User from "./UserComponent";
+// function App(){
+//   const displayName=(name)=>{
+//     alert(name);
+//   }
+//   const getUser=()=>{
+//     alert("get user function called")
+//   }
+  
+//   return(
+//     <>
+//     <User displayName={displayName} name="anil" userkaname={getUser}/>
+//     <User displayName={displayName} name="sam" userkaname={getUser}/>
+    
+//     </>
+//   )
+// }
+
+// export default App;
+
+//FORWARD REF -> used before react 19 but nowdirect using props.ref 
+// import UserInput from "./UserComponent"
+// function App(){
+//   const inputRef=useRef(null)
+
+//   const updateInput=()=>{
+//    inputRef.current.value=1000;
+//    inputRef.current.focus();
+//    inputRef.current.style.color="red"
+    
+//   }
+  
+//   return(
+//     <>
+//     <h1>Forward Ref</h1>
+//       <UserInput ref={inputRef} />
+//       <button onClick={updateInput}>Update Input field</button>
+//     </>
+//   )
+// }
+
+// export default App;
+
+//USEFORM STATUS HOOK 
+// import {useFormStatus} from 'react-dom'
+// function App() {
+
+
+//   const handleSubmit=async ()=>{
+//     await new Promise(res=>setTimeout(res,5000));
+//     console.log("submit");
+    
+//   }
+
+//   function CustomerForm(){
+//     const {pending,data,method} =useFormStatus();
+//     console.log(pending,data,method);
+    
+//     return(
+//       <div>
+//         <input type="text" placeholder="Enter Name" />
+//       <br />
+//       <br />
+//       <input type="text" placeholder="Enter Password" />
+//       <br />
+//       <br />
+//       <button disabled={pending}>{pending?'Submitting...':'Submit'}</button>
+
+//       </div>
+//     )
+//   }
+//   return (
+//    <div>
+//     <h1>useFormStatus Hook in React js 19</h1>
+//     <form action={handleSubmit} method='post'>
+//       <CustomerForm />
+//     </form>
+//    </div>
+
+//   );
+// }
+//export default App;
+
+//useTRANSITION HOOK use Transition is a React Hook introduced in React 18 as part of the Concurrent Features. It's used to manage transitions, i.e., updates that can be deferred so they don’t block more urgent UI updates like typing or clicking.
+
+
+// function App(){
+//   const[pending, startTransition] = useTransition();
+
+//   const handdleButton=()=>{
+//     startTransition(async()=>{
+//       await new Promise(res=>setTimeout(res,5000))
+//     })
+//   }
+  
+//   return(
+//     <>
+//     <h1>useTransition Hook in React js 19</h1>
+//     <button disabled={pending} onClick={handdleButton}>Click</button>
+    
+//     </>
+//   )
+// }
+// export default App;
+
+//KEEP YOUR COMPONENT PURE 
+
+//In JavaScript, a pure function is a function that satisfies two key conditions:
+
+// ✅ 1. Deterministic (Same input → Same output)
+// Given the same arguments, a pure function always returns the same result.
+
+// ✅ 2. No Side Effects
+// A pure function doesn’t change anything outside its scope,
+
+
+// function App(){
+  
+//   return(
+//     <>
+    
+//     </>
+//   )
+// }
+
+// export default App;

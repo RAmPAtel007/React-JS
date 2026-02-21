@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 // import { Component } from "react";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState , forwardRef} from "react";
 
 // import { useState } from "react";
 
@@ -268,6 +268,46 @@ import { useEffect, useState } from "react";
 // }
 
 // export default UserProfile;
+
+//PASS FUNCTION IN COMPONENTS AS PROP 
+// function User({displayName , name, userkaname }){
+//     return(
+//         <div>
+//             <button onClick={()=>displayName(name)}> display name</button>
+//             <button onClick={()=>userkaname()}> display name</button>
+//         </div>
+
+//     )
+// }
+// export default User;
+
+
+//FORWARD REF
+
+//old way before react 19 
+
+// const UserInput=(props,ref)=>{
+//     return (
+//         <>
+//             <div>
+//                 <input type="text" ref = {ref} />
+//             </div>
+//         </>
+//     )
+// }
+
+// export default forwardRef(UserInput);
+
+//new way 
+// const UserInput=(props)=>{
+//     return(<div>
+//         <input type="text" ref={props.ref} />
+//     </div>)
+// }
+
+// export default UserInput
+
+
 
 
 
