@@ -639,70 +639,187 @@ import { useEffect, useState } from "react";
 
 //Dynamic and conditional lnline style 
 
-function App() {
-  const [cardStyle, setCardStyle] = useState({
-    border: "1px solid #ccc",
-    width: "200px",
-    boxShadow: "1px 2px 3px 0px #cccccc57",
-    margin: "10px",
-  });
+// function App() {
+//   const [cardStyle, setCardStyle] = useState({
+//     border: "1px solid #ccc",
+//     width: "200px",
+//     boxShadow: "1px 2px 3px 0px #cccccc57",
+//     margin: "10px",
+//   });
 
-const [textColor, setTextColor] = useState("black");
+// const [textColor, setTextColor] = useState("red");
+// const[grid , setGrid] = useState(true);
 
-const updateTheme = (bgColor, textColor) => {
-    setCardStyle({ ...cardStyle, backgroundColor: bgColor });
-    setTextColor(textColor);
-};
+// const updateTheme = (bgColor, textColor) => {
+//     setCardStyle({ ...cardStyle, backgroundColor: bgColor });
+//     setTextColor(textColor);
+// };
 
-  return (
-    <>
-    <button onClick={() => updateTheme("#ccc  ", "red")}>Grey Theme</button>
-<button onClick={() => updateTheme("white", "black")}>
-  Default Theme
-</button>
+//   return (
+//     <>
+//     <h1 style={{ color: "red" }}>Dynamic and conditional lnline style</h1>
+//     <button onClick={() => updateTheme("#ccc", "red")}>Grey Theme</button>
+//     <button onClick={() => updateTheme("black", "red")}>Default Theme</button>
+//     <button onClick={()=>setGrid(!grid)}>Toggle grid</button>
     
-  <div>
-      <h1 style={{ color: "red" }}>Inline Style in React</h1>
-    <div style={{display:'flex' , flexWrap : 'wrap'}}>
+//   <div>
       
-      <div style={cardStyle}>
-        <img
-          style={{ width: "200px" }}
-          src="https://www.w3schools.com/howto/img_avatar.png"
-          alt=""
-        />
-        <div style={{ padding: "5px" , color:{textColor}}}>
-          <h4>Anil Sidhu</h4>
-          <p>Software Developer</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  </>
-  );
-}
+//     <div style={{display: grid?'flex' : 'block' , flexWrap : 'wrap'}}>
+      
+//       <div style={cardStyle}>
+//         <img
+//           style={{ width: "200px" }}
+//           src="https://www.w3schools.com/howto/img_avatar.png"
+//           alt=""
+//         />
+//         <div style={{ padding: "5px" , color: textColor}}>
+//           <h4>Anil Sidhu</h4>
+//           <p>Software Developer</p>
+//         </div>
+//       </div>
 
-export default App;
+//       <div style={cardStyle}>
+//         <img
+//           style={{ width: "200px" }}
+//           src="https://www.w3schools.com/howto/img_avatar.png"
+//           alt=""
+//         />
+//         <div style={{ padding: "5px" , color: textColor}}>
+//           <h4>Anil Sidhu</h4>
+//           <p>Software Developer</p>
+//         </div>
+//       </div>
+
+//       <div style={cardStyle}>
+//         <img
+//           style={{ width: "200px" }}
+//           src="https://www.w3schools.com/howto/img_avatar.png"
+//           alt=""
+//         />
+//         <div style={{ padding: "5px" , color: textColor}}>
+//           <h4>Anil Sidhu</h4>
+//           <p>Software Developer</p>
+//         </div>
+//       </div>
+
+//       <div style={cardStyle}>
+//         <img
+//           style={{ width: "200px" }}
+//           src="https://www.w3schools.com/howto/img_avatar.png"
+//           alt=""
+//         />
+//         <div style={{ padding: "5px" , color: textColor}}>
+//           <h4>Anil Sidhu</h4>
+//           <p>Software Developer</p>
+//         </div>
+//       </div>
+
+//       <div style={cardStyle}>
+//         <img
+//           style={{ width: "200px" }}
+//           src="https://www.w3schools.com/howto/img_avatar.png"
+//           alt=""
+//         />
+//         <div style={{ padding: "5px" , color: textColor}}>
+//           <h4>Anil Sidhu</h4>
+//           <p>Software Developer</p>
+//         </div>
+//       </div>
 
 
+//     </div>
+//   </div>
+//   </>
+//   );
+// }
+
+// export default App;
+
+//external Css
+
+// import "./css/style.css";
 // function App(){
   
 //   return(
-//     <div></div>
+// <>
+//       <h1 className="heading">External Style</h1>
+//       <div className="container">
+//         {/* Repeated cards */}
+//         <div className="user-card">
+//           <div>
+//             <img
+//               className="img-style"
+//               src="https://www.w3schools.com/howto/img_avatar.png"
+//               alt=""
+//             />
+//             <div className="text-wrap">
+//               <h4>Anil Sidhu</h4>
+//               <p>Software Developer</p>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Copy this div to make more cards */}
+//         {/* ...more cards */}
+//       </div>
+//     </>
 //   )
 // }
 
 // export default App;
 
+//style with Css modules
 
+// import UserProfile from "./UserComponent";
 // function App(){
   
 //   return(
-//     <div></div>
+//     <UserProfile />
 //   )
 // }
 
 // export default App;
+
+//Styled components
+
+//npm i styled-component
+// import styled from "styled-components"
+// function App(){
+//   //not working but its should
+//   // const Heading = styled.h2`
+//   // color:'red';
+//   // border:'1px solid green';
+//   // borderRadius:'5px';
+//   // margin:'20px';
+//   // padding:'20px'
+//   // `
+
+//   const Heading=styled.h1({
+//   color:'red',
+//   border:'1px solid green',
+//   borderRadius:'5px',
+//   margin:'20px',
+//   padding:'20px'
+// })
+
+// const StyleBtn=styled.button`
+// color:red;
+// width:130px;
+// height:40px;
+// margin:20px
+// `
+
+//   return(
+//     <>
+//       <h1>Styled Component with React js</h1>
+//       <Heading>Hello Heading </Heading>
+//       <StyleBtn>Login</StyleBtn>
+//     </>
+//   )
+// }
+
+// export default App;
+
 
 
 

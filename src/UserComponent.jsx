@@ -249,7 +249,25 @@ import { useEffect, useState } from "react";
 
 // export default Counter;
 
-//css 
+//css -> css modules
+// import style from './css/userProfile.module.css';
+// function UserProfile(){
+//     return(
+//         <div>
+//         <h1 className={style.heading}>User profile</h1>
+//         <div className={style.card}>
+//                 <img className={style.img}  src="https://www.w3schools.com/howto/img_avatar.png"></img>
+//             <div className={style.textWrap}>
+//             <h4>Ram Patel </h4>
+//             <p>Learn React with Ram </p>
+//             </div>
+//         </div>
+            
+//         </div>
+//     )
+// }
+
+// export default UserProfile;
 
 
 
