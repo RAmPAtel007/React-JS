@@ -1095,6 +1095,149 @@ import { forwardRef } from "react";
 // ✅ 2. No Side Effects
 // A pure function doesn’t change anything outside its scope,
 
+//DERIVED STATE 
+// function App() {
+//   const [users,setUsers]=useState([]);
+//   const [user,setUser]=useState('');
+//   const handleAddUsers=()=>{
+//     setUsers([...users,user])
+//   }
+// const total=users.length;
+// const last= users[users.length-1];
+// const unique= [...new Set(users)].length
+
+//   return (
+//     <div>
+//     {/* derived sates  */}
+//       <h2>Total User : {total} </h2>
+//       <h2>Last User : {last}</h2>
+//       <h2>Unique Total User : {unique}</h2>
+
+//     <input type="text" onChange={(event)=>setUser(event.target.value)} placeholder="add new user" />
+//     <button onClick={handleAddUsers} >Add User</button>
+//     {
+//       users.map((item,index)=>(
+//         <h4 key={index}>{item}</h4>
+//       ))
+//     }
+//     </div>
+
+//   );
+// }
+// export default App;
+
+
+//LIFTING STATE UP In React, "Lifting State Up" is the process of moving state to the nearest common ancestor of two or more components that need to share or sync that state. check the website for the code bro
+
+// UPDATING OBJECTS IN STATE 
+//you have to break the reference and created the new object through the spread operator 
+
+// function App() {
+
+//   const [data, setData] = useState({
+//     name: 'Anil',
+//     address: {
+//       city: 'Delhi',
+//       country: 'India'
+//     }
+//   })
+
+//   const handleName = (val) => {
+//     data.name = val
+
+//     setData({ ...data })
+
+//   }
+//   const handleCity = (city) => {
+//     data.address.city = city;
+//     console.log(data);
+//     setData({ ...data, address: { ...data.address, city } })
+
+
+//   }
+//   return (
+//     <div>
+//       <h1>Updating Objects in State</h1>
+
+//       <input type="text" placeholder="update name"
+//         onChange={(event) => handleName(event.target.value)} />
+
+//       <input type="text" placeholder="update city"
+//         onChange={(event) => handleCity(event.target.value)} />
+
+//       <h2>Name :{data.name}</h2>
+//       <h2>City :{data.address.city}</h2>
+//       <h2>Country :{data.address.country}</h2>
+
+
+//     </div>
+//   );
+// }
+// export default App;
+
+//UPDATING ARRAY IN STATE 
+
+
+function App(){
+  // const [name, setName] = useState('Ram');
+
+  //array
+  const [data, setData] = useState([
+    'Ram' , 'Sam' ,'Peter'
+  ])
+  //array and objects 
+  const [dataDetails,setDataDetails]=useState([
+  { name:'anil',age:'29'},
+  { name:'sam',age:'25'},
+  { name:'peter',age:'33'},
+])
+
+
+  const handleUser=(name)=>{
+
+    //array and object k liye new copyshare krna padte hai update k liye shared the same memory address..so create the new array "..."
+    data[data.length-1] = name ; //last name 
+    console.log(data)
+    setData([...data]) //new array 
+  }
+
+
+  const handleAge=(age)=>{
+    dataDetails[dataDetails.length-1].age = age ; //last age 
+    console.log(dataDetails)
+    setDataDetails([...dataDetails]) //new array 
+  }
+
+  return(
+    <>
+    <h1>Updating Array in State</h1>
+    <input type="text" placeholder="enter last user name " 
+      onChange={(event)=>handleUser(event.target.value)}
+    />
+    {
+      data.map((item, index)=>( //index and key is used for uniqueness ( handle the error in thhe console )
+        <h3 key={index}>{item}</h3>
+      ))
+    }
+
+
+
+    {/* <h2>{name}</h2>
+    <button onClick={()=>setName("Ram PAtel")}>Update Name</button> */}
+    <hr/>
+    <input type="text" placeholder="enter last user age " 
+      onChange={(event)=>handleAge(event.target.value)}
+    />
+    {
+      dataDetails.map((item,index)=>(
+        <h3 key={index} >{item.name} , {item.age}</h3>
+      ))
+    }
+    
+    </>
+  )
+}
+export default App;
 
 // function App(){
   
@@ -1104,5 +1247,31 @@ import { forwardRef } from "react";
 //     </>
 //   )
 // }
+// export default App;
 
+
+
+
+// function App(){
+  
+//   return(
+//     <>
+    
+//     </>
+//   )
+// }
+// export default App;
+
+
+
+
+
+// function App(){
+  
+//   return(
+//     <>
+    
+//     </>
+//   )
+// }
 // export default App;
