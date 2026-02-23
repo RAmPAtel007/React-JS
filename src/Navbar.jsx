@@ -34,6 +34,12 @@ export default function NavBar() {
                 <li>
                     <Link className="link" to="/collage">Collage</Link>
                 </li>
+                <li>
+                    <Link className="link" to="/users">Users</Link>
+                </li>
+                <li>
+                    <Link className="link" to="/users/lisk">List</Link>
+                </li>
                
             </ul>
         </div>

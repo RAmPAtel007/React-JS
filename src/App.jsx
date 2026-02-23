@@ -1499,6 +1499,8 @@ import Student from "./Routes/Student";
 import Department from "./Routes/Department";
 import Details from "./Routes/Detail";
 import PageNotFound from "./Routes/PageNotFound";
+import UserDetail from "./Routes/UserDeail";
+import UserList from "./Routes/UserList";
 
 export default function App(){
   return(
@@ -1506,12 +1508,35 @@ export default function App(){
     <>
     
     <BrowserRouter>
-    <Navbar />
+    {/* <Navbar /> */}
     
       <Routes>
+
+      <Route element={<Navbar />}>
+          <Route path="/" element={<Home />} />
+
+          {/* optional segment */}
+          <Route path='/users/list?' element={<UserList />} /> 
+          {/* unable to run this user list dont know  */}
+          <Route path='/users/:id' element={<UserDetail />} />
+      </Route>
+
+
+
         <Route path="/" element={<Home/>}/>
         <Route path="/About" element={<About/>}/>
         <Route path="/Login" element={<Login/>}/>
+
+          
+        
+
+
+        {/* Prefix route..update the navbar path also to run this 
+        <Route path='in'>
+         <Route path='/in/user'>
+         <Route path="/in/user/login" element={<Login />} />
+         <Route path="/in/user/about" element={<About />} />
+         </Route> */}
 
         {/* for nested navigation */}
         <Route path="/collage" element={<Collage />}>
