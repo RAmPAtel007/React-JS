@@ -4,7 +4,7 @@
 // import viteLogo from '/vite.svg'
 // import { createLogger } from 'vite';
 
-import { useEffect, useState , useTransition } from "react";
+import { useEffect, useState , useTransition ,useActionState,useId } from "react";
 import { useRef } from "react";
 import { forwardRef } from "react";
 
@@ -1178,68 +1178,375 @@ import { forwardRef } from "react";
 //UPDATING ARRAY IN STATE 
 
 
-function App(){
-  // const [name, setName] = useState('Ram');
+// function App(){
+//   // const [name, setName] = useState('Ram');
 
-  //array
-  const [data, setData] = useState([
-    'Ram' , 'Sam' ,'Peter'
-  ])
-  //array and objects 
-  const [dataDetails,setDataDetails]=useState([
-  { name:'anil',age:'29'},
-  { name:'sam',age:'25'},
-  { name:'peter',age:'33'},
-])
-
-
-  const handleUser=(name)=>{
-
-    //array and object k liye new copyshare krna padte hai update k liye shared the same memory address..so create the new array "..."
-    data[data.length-1] = name ; //last name 
-    console.log(data)
-    setData([...data]) //new array 
-  }
+//   //array
+//   const [data, setData] = useState([
+//     'Ram' , 'Sam' ,'Peter'
+//   ])
+//   //array and objects 
+//   const [dataDetails,setDataDetails]=useState([
+//   { name:'anil',age:'29'},
+//   { name:'sam',age:'25'},
+//   { name:'peter',age:'33'},
+// ])
 
 
-  const handleAge=(age)=>{
-    dataDetails[dataDetails.length-1].age = age ; //last age 
-    console.log(dataDetails)
-    setDataDetails([...dataDetails]) //new array 
-  }
+//   const handleUser=(name)=>{
 
-  return(
-    <>
-    <h1>Updating Array in State</h1>
-    <input type="text" placeholder="enter last user name " 
-      onChange={(event)=>handleUser(event.target.value)}
-    />
-    {
-      data.map((item, index)=>( //index and key is used for uniqueness ( handle the error in thhe console )
-        <h3 key={index}>{item}</h3>
-      ))
-    }
+//     //array and object k liye new copyshare krna padte hai update k liye shared the same memory address..so create the new array "..."
+//     data[data.length-1] = name ; //last name 
+//     console.log(data)
+//     setData([...data]) //new array 
+//   }
 
 
+//   const handleAge=(age)=>{
+//     dataDetails[dataDetails.length-1].age = age ; //last age 
+//     console.log(dataDetails)
+//     setDataDetails([...dataDetails]) //new array 
+//   }
 
-    {/* <h2>{name}</h2>
-    <button onClick={()=>setName("Ram PAtel")}>Update Name</button> */}
-    <hr/>
-    <input type="text" placeholder="enter last user age " 
-      onChange={(event)=>handleAge(event.target.value)}
-    />
-    {
-      dataDetails.map((item,index)=>(
-        <h3 key={index} >{item.name} , {item.age}</h3>
-      ))
-    }
+//   return(
+//     <>
+//     <h1>Updating Array in State</h1>
+//     <input type="text" placeholder="enter last user name " 
+//       onChange={(event)=>handleUser(event.target.value)}
+//     />
+//     {
+//       data.map((item, index)=>( //index and key is used for uniqueness ( handle the error in thhe console )
+//         <h3 key={index}>{item}</h3>
+//       ))
+//     }
+
+
+
+//     {/* <h2>{name}</h2>
+//     <button onClick={()=>setName("Ram PAtel")}>Update Name</button> */}
+//     <hr/>
+//     <input type="text" placeholder="enter last user age " 
+//       onChange={(event)=>handleAge(event.target.value)}
+//     />
+//     {
+//       dataDetails.map((item,index)=>(
+//         <h3 key={index} >{item.name} , {item.age}</h3>
+//       ))
+//     }
     
+//     </>
+//   )
+// }
+// export default App;
+
+// useACTIONSTATE HOOK
+//The useActionState Hook in React facilitates state updates based on the outcome of an action, particularly useful in scenarios involving form submissions or other server-side operations. This hook is designed to streamline the management of state related to actions, especially when interacting with React Server Components.
+
+// export default function App() {
+
+//   const handleSubmit = async (previousData, formData) => {
+//     let name = formData.get('name');
+//     let password = formData.get('password');
+
+//     await new Promise(res => setTimeout(res, 2000))
+//     // console.log("handleSubmit called",name,password);
+//     if (name && password) {
+//       return { message: 'Data Submitted', name, password }
+//     } else {
+//       return { error: 'Failed to Submit. Enter proper data', name, password }
+//     }
+
+//   }
+//   const [data, action, pending] = useActionState(handleSubmit, undefined)
+//   console.log(data);
+
+//   return (
+//     <div>
+//       <h1>useActionState Hook in React js</h1>
+//       <form action={action}>
+//         <input defaultValue={data?.name} type="text" placeholder="enter name" name="name" />
+//         <br /><br />
+//         <input defaultValue={data?.password} type="password" placeholder="enter password" name="password" />
+//         <br /><br />
+//         <button disabled={pending} >Submit data</button>
+//         <br />
+
+//       </form>
+//       {
+//         data?.error && <span style={{ color: 'red' }}>{data?.error}</span>
+//       }
+//       {
+//         data?.message && <span style={{ color: 'green' }}>{data?.message}</span>
+//       }
+
+//       <h3>Name : {data?.name}</h3>
+//       <h3>Password : {data?.password}</h3>
+
+
+//     </div>
+//   );
+// }
+
+//useID HOOK
+// The useId hook in React is a tool for generating unique IDs within a component. It's particularly useful for tasks like associating labels with form inputs or handling dynamic content where unique identifiers are needed. React 18 introduced useId to ensure IDs are consistent across server and client rendering, simplifying accessibility and dynamic UI management.
+
+// export default function App() {
+ 
+
+// return(
+//   <div>
+// <UserForm />
+// <hr />
+// <UserForm />
+
+//   </div>
+// )
+  
+// }
+
+
+// function UserForm() {
+//   const user =useId(); //YOU CAN Create other ids also or also add the prefix to make it unique while using the same id
+
+
+// return(
+//   <div>
+//  <form action="">
+//   <label htmlFor={user+"name"}>Enter User Name</label>
+//   <input id={user+"name"} type="text" placeholder="enter name" />
+//   <br /><br />
+//   <label htmlFor={user+"password"}>Enter User password</label>
+//   <input id={user+"password"} type="text" placeholder="enter password" />
+//   <br /><br />
+//   <label htmlFor={user+"skills"}>Enter User Skills</label>
+//   <input id={user+"skills"} type="text" placeholder="enter skills" />
+
+//   <br /><br />
+//   <input id={user+"terms"} type="checkbox" placeholder="enter skills" />
+//   <label htmlFor={user+"terms"}>Terms and Condition</label>
+
+//  </form>
+
+//   </div>
+// )
+  
+// }
+
+//FRAGMENT IN REACT JS 
+//Fragment is a feature that allows you to group a list of children elements without adding extra nodes to the DOM (Document Object Model).
+// toh hota yeah hai ki js return always 1 object and every element is treated as a object that why we wrap a warapper of a div for multiple elements so it create a node in dom..if 100 components then 100 div then use fragment which do not create a node and allows multiple objects or elements at once -> short form <> </>
+// import { Fragment } from "react";
+
+// export default function App() {
+//   return (
+//     <> 
+//       <Data />
+//       <Data />
+//       <Data />
+//       <Data />
+//       <Data />
+//     </>
+//   );
+// }
+
+// function Data() {
+//   return (
+//     <Fragment>
+//       <h1>Fragment in React js</h1>
+//       <h1>Fragment in React js</h1>
+//     </Fragment>
+//   );
+// }
+
+
+
+//RULES FOR REACT JS HOOKS
+//Start with use_____
+  // useState
+  // useEffect
+  // useRef
+  //TOP OF THE COMPONENT
+
+//   export default function App() {
+  
+//   const [user,setUser] = useState(); //correct
+  
+  
+//   if (condition) {
+//     const [data,setData] = useState(); // not correct
+//   }
+  
+  
+//   return (
+//    <div>
+//     <h1>Hook Rules in React js</h1>
+//    </div>
+
+//   )
+
+// }
+//🔴 Do not call Hooks inside conditions or loops.
+// 🔴 Do not call Hooks after a conditional return statement.
+// 🔴 Do not call Hooks in event handlers.
+// 🔴 Do not call Hooks in class components.
+// 🔴 Do not call Hooks inside try/catch/finally blocks.
+
+
+
+
+
+//MAKE CUSTOM HOOKS 
+// import useToggle from "./useToggle";
+
+// function App(){
+//   const [value,toggleValue] = useToggle(true);
+//   const [data, setData] = useToggle(true);
+  
+//   return(
+//     <>
+//     <div>
+//       <button onClick={toggleValue}> toggle heading </button>
+//       <button onClick={()=>toggleValue(false)}> hide heading </button>
+//       <button onClick={()=>toggleValue(true)}> show heading </button>
+//     </div>
+    
+//     {
+//       value? <h1>Custom Hooks </h1> : null 
+//     }
+
+//     <hr/>
+   
+//     <button onClick={setData}> toggle heading </button>
+//       <button onClick={()=>setData(false)}> hide heading </button>
+//       <button onClick={()=>setData(true)}> show heading </button>
+//       {
+//         data? <h1>second heading</h1> : null
+//       }
+//     </>
+//   )
+// }
+// export default App;
+
+
+//CONTEXT API
+
+//create Context : To initiate Context API.
+// Provider : use for update or provide data.
+// use Context : get data from context api.
+
+// import College from "./contextAPI/College";
+// import { SubjectContext } from "./contextAPI/ContextData";
+// function App(){
+//   const [subject,setSubject]=useState('')
+  
+//   return(
+//     <div style={{backgroundColor:'yellow', padding:10}}>
+//     <SubjectContext.Provider value={subject}>
+
+//       <select value={subject} onChange={(event)=>setSubject(event.target.value)}>
+//         <option value="">Select Subject</option>
+//         <option value="Maths">Maths</option>
+//         <option value="History">History</option>
+//         <option value="English">English</option>
+
+//       </select>
+
+//       <h1>Context API</h1>
+//       <button onClick={()=>setSubject('')} >Clear Subject</button>
+//     <College />
+//     </SubjectContext.Provider>
+    
+    
+//     </div>
+//   )
+// }
+// export default App;
+
+
+
+//REACT ROUTER 7 
+
+import { BrowserRouter, Routes, Route ,Link, NavLink} from "react-router";
+
+// export default function App() {
+
+// return (
+// <div>
+// <BrowserRouter>
+// <NavLink to="/">Home</NavLink>
+// <NavLink to="/about">About</NavLink>
+
+// <Routes>
+// <Route path="/" element={<h1>Home</h1>} />
+// <Route path="/about" element={<h1>About </h1>} />
+
+// </Routes>
+// </BrowserRouter>
+
+
+// </div>
+// )
+
+// }
+
+//Routes  - > route components ko pages mein covert kr dega and define the path
+import Home from "./Routes/Home";
+import About from "./Routes/About";
+import Login from "./Routes/Login";
+import Navbar from "./Navbar";
+import Collage from "./Routes/Collage";
+import Student from "./Routes/Student";
+import Department from "./Routes/Department";
+import Details from "./Routes/Detail";
+import PageNotFound from "./Routes/PageNotFound";
+
+export default function App(){
+  return(
+    
+    <>
+    
+    <BrowserRouter>
+    <Navbar />
+    
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/About" element={<About/>}/>
+        <Route path="/Login" element={<Login/>}/>
+
+        {/* for nested navigation */}
+        <Route path="/collage" element={<Collage />}>
+        <Route path='student' element={<Student />} />
+        <Route path='department' element={<Department />} />
+        <Route path='detail' element={<Details />} />
+        </Route>
+
+
+
+
+        {/* 404 handling always in last  */}
+        <Route path="/*" element={<PageNotFound/>} />
+        {/* <Route  path='/*' element={<Navigate  to="/Login" />} /> */}
+      </Routes>
+    </BrowserRouter>
+
     </>
   )
 }
-export default App;
 
-// function App(){
+
+
+
+//function App(){
+  
+//   return(
+//     <>
+    
+//     </>
+//   )
+// }
+// export default App;
+
+//function App(){
   
 //   return(
 //     <>
@@ -1250,9 +1557,7 @@ export default App;
 // export default App;
 
 
-
-
-// function App(){
+//function App(){
   
 //   return(
 //     <>
@@ -1263,10 +1568,7 @@ export default App;
 // export default App;
 
 
-
-
-
-// function App(){
+//function App(){
   
 //   return(
 //     <>
@@ -1275,3 +1577,16 @@ export default App;
 //   )
 // }
 // export default App;
+
+
+//function App(){
+  
+//   return(
+//     <>
+    
+//     </>
+//   )
+// }
+// export default App;
+
+

@@ -1,0 +1,13 @@
+import { useContext } from "react"
+import { SubjectContext } from "./ContextData"
+
+
+export default function Subject() {
+    const subject = useContext(SubjectContext) //step 3
+    return (
+      <div  style={{backgroundColor:'red', padding:10}}>
+        <h1>Subject is : {subject}</h1>
+      </div>
+    )
+  
+  }
