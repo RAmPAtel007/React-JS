@@ -13,7 +13,7 @@
 // }
 
 //header with react routers 
-import { Link } from "react-router";
+import { Link, NavLink, Outlet } from "react-router";
 import './header.css'
 export default function NavBar() {
     return <div className="header">
@@ -23,7 +23,9 @@ export default function NavBar() {
         <div>
             <ul>
                 <li>
-                    <Link className="link" to="/">Home</Link>
+                    <NavLink className="link" to="/">Home</NavLink>
+
+                    {/* //In React Router, a NavLink is a special type of link used for navigation that can automatically apply active styling when the link’s route matches the current URL. */}
                 </li>
                 <li>
                     <Link className="link" to="/Login">Login</Link>
@@ -43,5 +45,7 @@ export default function NavBar() {
                
             </ul>
         </div>
+        {/* <Outlet /> */}
     </div>
 }
+

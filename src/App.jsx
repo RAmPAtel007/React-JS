@@ -1490,96 +1490,99 @@ import { BrowserRouter, Routes, Route ,Link, NavLink} from "react-router";
 // }
 
 //Routes  - > route components ko pages mein covert kr dega and define the path
-import Home from "./Routes/Home";
-import About from "./Routes/About";
-import Login from "./Routes/Login";
-import Navbar from "./Navbar";
-import Collage from "./Routes/Collage";
-import Student from "./Routes/Student";
-import Department from "./Routes/Department";
-import Details from "./Routes/Detail";
-import PageNotFound from "./Routes/PageNotFound";
-import UserDetail from "./Routes/UserDeail";
-import UserList from "./Routes/UserList";
+// import Home from "./Routes/Home";
+// import About from "./Routes/About";
+// import Login from "./Routes/Login";
+// import Navbar from "./Navbar";
+// import Collage from "./Routes/Collage";
+// import Student from "./Routes/Student";
+// import Department from "./Routes/Department";
+// import Details from "./Routes/Detail";
+// import PageNotFound from "./Routes/PageNotFound";
+// import UserDetail from "./Routes/UserDeail";
+// import UserList from "./Routes/UserList";
 
-export default function App(){
-  return(
+// export default function App(){
+//   return(
     
-    <>
+//     <>
     
-    <BrowserRouter>
-    {/* <Navbar /> */}
+//     <BrowserRouter>
+//     {/* <Navbar /> */}
     
-      <Routes>
+//       <Routes>
 
-      <Route element={<Navbar />}>
-          <Route path="/" element={<Home />} />
+//       <Route element={<Navbar />}>
+//           <Route path="/" element={<Home />} />
 
-          {/* optional segment */}
-          <Route path='/users/list?' element={<UserList />} /> 
-          {/* unable to run this user list dont know  */}
-          <Route path='/users/:id' element={<UserDetail />} />
-      </Route>
+//           {/* optional segment */}
+//           <Route path='/users/list?' element={<UserList />} /> 
+//           {/* unable to run this user list dont know  */}
+//           <Route path='/users/:id' element={<UserDetail />} />
+//       </Route>
 
 
 
-        <Route path="/" element={<Home/>}/>
-        <Route path="/About" element={<About/>}/>
-        <Route path="/Login" element={<Login/>}/>
+//         <Route path="/" element={<Home/>}/>
+//         <Route path="/About" element={<About/>}/>
+//         <Route path="/Login" element={<Login/>}/>
 
           
         
 
 
-        {/* Prefix route..update the navbar path also to run this 
-        <Route path='in'>
-         <Route path='/in/user'>
-         <Route path="/in/user/login" element={<Login />} />
-         <Route path="/in/user/about" element={<About />} />
-         </Route> */}
+//         {/* Prefix route..update the navbar path also to run this 
+//         <Route path='in'>
+//          <Route path='/in/user'>
+//          <Route path="/in/user/login" element={<Login />} />
+//          <Route path="/in/user/about" element={<About />} />
+//          </Route> */}
 
-        {/* for nested navigation */}
-        <Route path="/collage" element={<Collage />}>
-        <Route path='student' element={<Student />} />
-        <Route path='department' element={<Department />} />
-        <Route path='detail' element={<Details />} />
-        </Route>
-
-
+//         {/* for nested navigation */}
+//         <Route path="/collage" element={<Collage />}>
+//         <Route path='student' element={<Student />} />
+//         <Route path='department' element={<Department />} />
+//         <Route path='detail' element={<Details />} />
+//         </Route>
 
 
-        {/* 404 handling always in last  */}
-        <Route path="/*" element={<PageNotFound/>} />
-        {/* <Route  path='/*' element={<Navigate  to="/Login" />} /> */}
-      </Routes>
-    </BrowserRouter>
 
+
+//         {/* 404 handling always in last  */}
+//         <Route path="/*" element={<PageNotFound/>} />
+//         {/* <Route  path='/*' element={<Navigate  to="/Login" />} /> */}
+//       </Routes>
+//     </BrowserRouter>
+
+//     </>
+//   )
+// }
+
+
+//TAILWIND CSS SETUP
+
+// function App(){
+  
+//   return(
+//     <>
+//     Tailwind css setup  
+//     <h1 class="text-3xl font-bold underline">
+//     Hello world!
+//     </h1>
+//     </>
+//   )
+// }
+// export default App;
+
+function App(){
+  
+  return(
+    <>
+    
     </>
   )
 }
-
-
-
-
-//function App(){
-  
-//   return(
-//     <>
-    
-//     </>
-//   )
-// }
-// export default App;
-
-//function App(){
-  
-//   return(
-//     <>
-    
-//     </>
-//   )
-// }
-// export default App;
+export default App;
 
 
 //function App(){
