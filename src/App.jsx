@@ -1574,10 +1574,19 @@ import { BrowserRouter, Routes, Route ,Link, NavLink} from "react-router";
 // }
 // export default App;
 
+
+//API
 function App(){
+  async function getUserData(){
+    const url = "https://dummyjson.com/users";
+    let response = await respo
+
+      
+    }
   
   return(
     <>
+    
     
     </>
   )
