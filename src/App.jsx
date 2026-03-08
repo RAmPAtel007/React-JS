@@ -1467,6 +1467,7 @@ import { forwardRef } from "react";
 //REACT ROUTER 7 
 
 import { BrowserRouter, Routes, Route ,Link, NavLink} from "react-router";
+import UserList from "./UserList";
 
 // export default function App() {
 
@@ -1576,17 +1577,221 @@ import { BrowserRouter, Routes, Route ,Link, NavLink} from "react-router";
 
 
 //API
-function App(){
-  async function getUserData(){
-    const url = "https://dummyjson.com/users";
-    let response = await respo
+
+// function App(){
+//   const [usersData , setUserData]= useState([]);
+//   useEffect(()=>{
+//     getUserData();
+
+//   } , [])
+//   async function getUserData(){
+//     const url = "https://dummyjson.com/users";
+//     let response = await fetch(url);
+//     response = await response.json()
+//     // console.log(response)
+//     setUserData(response.users);
 
       
-    }
+//     }
+//     // console.log(setUserData)
+  
+//   return(
+//     <>
+//     <h1>fetch data from user </h1>
+//     {
+//       usersData && usersData.map((user)=>(
+//         <ul>
+//           <li>{user.firstName}</li>
+//           <li>{user.lastName}</li>
+//           <li>{user.age}</li>
+//           <hr></hr>
+
+//         </ul>
+//       ))
+//     }
+    
+//     </>
+//   )
+// }
+// export default App;
+
+// INTEGRATE JSON SERVER API AND LOADER-> LOader k liye video dekh lo 
+// function App(){
+//   const [userdata , setUseeData] = useState([]);
+//   useEffect(()=>{
+//     getUserData();
+//   } ,[])
+
+//   const getUserData = async()=>{
+//     const url = "http://localhost:3000/users";
+//     let response = await fetch(url);
+//     response = await response.json();
+//     console.log(response);
+//     setUseeData(response);
+//   }
+  
+//   return(
+//     <>
+//     INTEGRATE JSON SERVER API AND LOADER
+//     {
+//       userdata.map((user)=>(
+//         <h1 key={user.id}>{user.name}</h1>
+//       ))
+//     }
+    
+//     </>
+//   )
+// }
+// export default App;
+
+//ROUTES AND PAGES FOR USER LIST AND ADD USER UI
+
+// import UserAdd from "./UserAdd";
+// import UserEdit from "./UserEdit";
+
+// function App(){
+  
+//   return(
+//     <>
+//     <ul className='nav-list'>
+//         <li>
+//           <NavLink to="/">List</NavLink>
+//         </li>
+//         <li><NavLink to="/add">Add User</NavLink></li>
+//       </ul>
+//    {/* <h1>Make Routes and Pages for Add User and User List UI</h1> */}
+
+   
+//     <Routes >
+//     <Route path="/" element={<UserList />} />
+//     <Route path="/add" element={<UserAdd />} />
+//     {/* Dynamic routes (with id) */}
+//     <Route path="/edit/:id" element={<UserEdit />} />
+
+
+//   </Routes>
+    
+//     </>
+//   )
+// }
+// export default App;
+
+
+//SIMPLE VALIDATION
+
+// function App() {
+
+// const [name,setName]=useState('');
+// const [nameErr,setNameErr]=useState(); 
+
+// const [password,setPassword]=useState('');
+// const [passErr,setPassErr]=useState(); 
+
+// const handleName=(event)=>{
+//   console.log(event.target.value);
+//   if(event.target.value.length>5){
+//     setNameErr("Please enter valid username. only 5 characters allowed ")
+//   }else{
+//     setNameErr()
+//   }
+  
+// }
+
+// const handlePassword=(event)=>{
+//   let regex= /^[A-Z0-9]+$/i;
+//   if(regex.test(event.target.value)){
+//     setPassErr()
+   
+//   }else{
+//     setPassErr("Please enter valid password. only numbers and alphabets allowed ")
+//   }
+  
+// }
+
+//   return (
+//     <div>
+//       <input className={nameErr?'error':''} type="text" onChange={handleName} placeholder='enter name ' />
+//       <span className='red-color'>{nameErr && nameErr}</span>
+//       <br /><br />
+//       <input className={passErr?'error':''} type="text" placeholder='enter password' onChange={handlePassword} />
+//       <span className='red-color'>{passErr && passErr}</span>
+//       <br /><br />
+//       <button disabled={passErr || nameErr} >Login</button>
+
+//     </div>
+
+//   );
+// }
+
+// export default App;
+
+
+//USEACTIONSTATE HOOK 
+//const [state, action, isPending] = useActionState(fn, initialState);
+
+//Parameter	Meaning
+// fn	->Action function executed when form is submitted
+// initialState	->Initial value of the state
+// state	->Current state
+// action	->Function used in the form action
+// isPending	->Boolean that tells if action is running
+
+// function App() {
+
+//   const handleLogin = (prevData, formData) => {
+//     let name = formData.get('name')
+//     let password = formData.get('password')
+//     let regex = /^[A-Z0-9]+$/i;
+
+
+//     if ( !name || name.length > 5) {
+//       return { error: 'Name can not be empty or Name should not container more then 5 characters',name,password }
+//     } else if (!regex.test(password)) {
+//       return { error: 'Password can  container only numbers and alphabets',name,password }
+//     } else {
+//       return { message: 'Login done',name,password }
+//     }
+
+
+//   }
+//   const [data, action, pending] = useActionState(handleLogin);
+//   return (
+//     <div>
+//       <h1>Validation with useActionState in React</h1>
+//       {
+//        data?.message && <span style={{color:'green'}} > {data?.message}</span>
+//       }
+//       {
+//        data?.error && <span  style={{color:'red'}}> {data?.error}</span>
+//       }
+//       <form action={action}>
+//         <input defaultValue={data?.name}  type="text" name='name' placeholder='enter user name' />
+//         <br /><br />
+//         <input type="text" defaultValue={data?.password}  name='password' placeholder='enter user password' />
+//         <br /><br />
+//         <button  >Login</button>
+//       </form>
+//     </div>
+
+//   );
+// }
+
+// export default App;
+
+
+//useREDUCER HOOK
+
+//const [state, dispatch] = useReducer(reducer, initialState);
+
+// reducer->	Function that updates state
+// initialState >	Starting state value
+
+// state >	Current state
+// dispatch	> Function used to trigger state updates
+function App(){
   
   return(
     <>
-    
     
     </>
   )
@@ -1604,16 +1809,6 @@ export default App;
 // }
 // export default App;
 
-
-//function App(){
-  
-//   return(
-//     <>
-    
-//     </>
-//   )
-// }
-// export default App;
 
 
 //function App(){

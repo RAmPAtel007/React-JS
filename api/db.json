@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "name": "Sam khi",
+      "age": "32",
+      "email": "sam@test.com",
+      "id": "c648"
+    },
+    {
+      "name": "aswi",
+      "email": "aswi@test.com",
+      "age": "20",
+      "id": "d691"
+    },
+    {
+      "id": "c71f",
+      "name": "hjhuj",
+      "email": " m ",
+      "age": "bjj"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
