@@ -1788,15 +1788,207 @@ import UserList from "./UserList";
 
 // state >	Current state
 // dispatch	> Function used to trigger state updates
-function App(){
-  
-  return(
-    <>
-    
-    </>
-  )
-}
-export default App;
+
+// import { useReducer } from "react";
+
+// const initialState = { count: 0 };
+
+// function reducer(state, action) {
+
+//   switch(action.type){
+
+//     case "increment":
+//       return { count: state.count + 1 };
+
+//     case "decrement":
+//       return { count: state.count - 1 };
+
+//     case "reset":
+//       return initialState;
+
+//     default:
+//       return state;
+//   }
+// }
+
+// export default function Counter(){
+
+//   const [state, dispatch] = useReducer(reducer, initialState);
+
+//   return (
+//     <div>
+//       <h2>{state.count}</h2>
+
+//       <button onClick={() => dispatch({type:"increment"})}>
+//         +
+//       </button>
+
+//       <button onClick={() => dispatch({type:"decrement"})}>
+//         -
+//       </button>
+
+//       <button onClick={() => dispatch({type:"reset"})}>
+//         Reset
+//       </button>
+//     </div>
+//   );
+// }
+
+//User clicks button
+//       ↓
+// dispatch(action)
+//       ↓
+// reducer(state, action)
+//       ↓
+// returns new state
+//       ↓
+// React re-renders component
+
+
+//LAZY LOADING 
+
+// import React, { lazy, Suspense } from "react";
+
+// // Lazy load the component
+// // React will load this component only when it is rendered
+// const Dashboard = lazy(() => import("./Dashboard"));
+
+// function App() {
+
+//   return (
+//     <div>
+
+//       <h1>My Application</h1>
+
+//       {/* Suspense is used to show fallback UI while component loads */}
+//       <Suspense fallback={<h2>Loading...</h2>}>
+
+//         {/* Dashboard component will load lazily */}
+//         <Dashboard />
+
+//       </Suspense>
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+//A Promise is an object that represents a future value that will be available later.
+
+// | `.then()`  | Runs when promise is successful |
+// | `.catch()` | Runs when promise fails         |
+
+//FOR READING -----------------
+//async is used to define a function that returns a Promise automatically.
+
+//await pauses the function until the Promise is resolved.
+
+//⚠️ It can only be used inside async functions.
+//--------------------------
+
+//USE API OR USE HOOK -> Reads Promise inside componentReads Promise inside component
+
+
+// Import React and Suspense
+// import React, { Suspense } from "react";
+
+// // Import the new React hook 'use'
+// // This hook allows us to read the value of a Promise directly
+// import { use } from "react";
+
+
+// // Function to fetch data from API
+// // fetch() returns a Promise
+// const fetchData = () => {
+
+//   // Sending request to API
+//   return fetch("https://dummyjson.com/users")
+
+//     // Convert API response into JSON format
+//     .then((response) => response.json());
+// };
+
+
+// // Call fetchData() once and store the returned Promise
+// // This Promise will later be consumed inside the Users component
+// const userResource = fetchData();
+
+
+// // Main App Component
+// export default function App() {
+
+//   return (
+//     <div>
+
+//       {/* Page heading */}
+//       <h1>Use API in React JS</h1>
+
+//       {/* 
+//         Suspense handles loading state automatically.
+//         If the data is not ready yet, the fallback UI will be shown.
+//       */}
+//       <Suspense fallback={<p>Loading...</p>}>
+
+//         {/* 
+//           Users component receives the Promise as a prop.
+//           When Users tries to read the Promise using use(),
+//           Suspense will wait until the Promise resolves.
+//         */}
+//         <Users userResource={userResource} />
+
+//       </Suspense>
+
+//     </div>
+//   );
+// }
+
+
+
+// // Users Component
+// // This component receives the Promise containing user data
+// const Users = ({ userResource }) => {
+
+//   /*
+//     use() reads the Promise.
+//     If the Promise is still pending → Suspense fallback will show.
+//     If resolved → actual data will be returned.
+//   */
+//   const userData = use(userResource);
+
+
+//   // Print users data in the console for debugging
+//   console.log(userData.users);
+
+
+//   return (
+//     <div>
+
+//       {/* Section heading */}
+//       <h2>Users List</h2>
+
+//       {
+//         /*
+//           Loop through the users array using map()
+//           and display each user's first name
+//         */
+//         userData?.users?.map((user) => (
+
+//           // key is required when rendering lists in React
+//           <h3 key={user.id}>
+//             {user.firstName}
+//           </h3>
+
+//         ))
+//       }
+
+//     </div>
+//   );
+// };
+
+
+
 
 
 //function App(){
@@ -1810,15 +2002,4 @@ export default App;
 // export default App;
 
 
-
-//function App(){
-  
-//   return(
-//     <>
-    
-//     </>
-//   )
-// }
-// export default App;
-
-
+// new features are remaining go through the website and Keep learning 
